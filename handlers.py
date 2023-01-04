@@ -105,3 +105,6 @@ async def output_all(call: types.CallbackQuery):
     for x in data:
         await call.message.answer(f'Фамилия: {x[0]}\nИмя: {x[1]}\nТелефон: {x[2]}\nОписание: {x[3]}')
     await call.message.answer(f'Чем еще могу помочь?', reply_markup=kb.keyboard)
+
+
+__all__ = ['dp']

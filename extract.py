@@ -10,7 +10,7 @@ def fnd_lastname(data, search):
 
 # функция проверяет список на пустоту
 def empty_fnd(data):
-        if not data:
-            return -1
-        else:
-            return data
+    if not data:
+        return -1
+    else:
+        return data

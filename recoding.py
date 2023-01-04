@@ -14,6 +14,7 @@ def for_fnd(data, f_n):
         writer.writeheader()
         writer.writerow(data)
 
+
 def output_csv(a):
     with open(a) as f:
         reader = csv.reader(f)
