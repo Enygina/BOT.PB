@@ -1,4 +1,5 @@
 import csv
+import json
 
 
 def rec_csv(data, f_n):
@@ -27,3 +28,19 @@ def for_beauty(a):
         if i[0] != 'Surname':
             j.remove(i)
     return j
+
+def foto_weather(data):
+    if data == "Clear":
+        photo = open('Clear.jpg', 'rb')
+    elif data == "Clouds":
+        photo = open('Clouds.jpg', 'rb')
+    elif data == "Rain" or data == "Drizzle":
+        photo = open('Rain.jpg', 'rb')
+    elif data == "Thunderstorm":
+        photo = open('Thunderstorm.jpg', 'rb')
+    elif data == "Mist":
+        photo = open('Mist.jpg', 'rb')
+    elif data == "Snow":
+        photo = open('Snow.jpg', 'rb')
+    return photo
+
