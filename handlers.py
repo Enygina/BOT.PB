@@ -139,7 +139,6 @@ async def NASA_photo(call: types.CallbackQuery):
             a = str(json_r[key])
         if key == "explanation":
             b = translator.translate(str(json_r[key]), dest='ru')
-            print(b)
     await bot.send_photo(chat_id=chat_id, photo=a)
     await call.message.answer(f'А это интересно:\n \n{b.text}')
     await asyncio.sleep(5)
@@ -177,10 +176,10 @@ async def get_city(message: types.Message, state: FSMContext):
             wb="Посмотри в окно, не пойму, что там за погода"
         await bot.send_photo(chat_id=chat_id, photo=recoding.foto_weather(weather_description))
         await message.answer(f'{wb}\n'
-                             f'За окном: {json_r["main"]["temp"]} °C \n'
-                             f'Ощущается как: {json_r["main"]["feels_like"]}\n'
+                             f'За окном: {round(int(json_r["main"]["temp"]),0)} °C \n'
+                             f'Ощущается как: {round(int(json_r["main"]["feels_like"]),0)}\n'
                              f'Облачность: {json_r["clouds"]["all"]} % \n'
-                             f'Скорость ветра: {json_r["wind"]["speed"]} м/сек.\n')
+                             f'Скорость ветра: {round(int(json_r["wind"]["speed"]),0)} м/сек.\n')
         await asyncio.sleep(2)
         await message.answer(f'Чем еще могу помочь?', reply_markup=kb.keybd)
     except Exception:
